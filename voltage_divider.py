@@ -125,7 +125,7 @@ main_params={
         'block_params':[type10_block,type2_block], 
 
         # specify filename and paper size
-        'filename':'volts.pdf',
+        'filename':'voltage_divider.pdf',
         'paper_height':11.0*2.54,
         'paper_width':8.5*2.54,
 
