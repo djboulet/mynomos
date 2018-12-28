@@ -1,5 +1,5 @@
 """
-    simply_annuity.py
+    simple_annuity.py
 
     ---
     Nomogram to calculate how long a lump sum will last based on regular
@@ -50,7 +50,7 @@ block_1_params={
            'v_title':r'interest rate = ',
            'u_text_format':r"$%3.0f$ ",
            'v_text_format':r"$%3.0f$ \%% ",
-           'isopleth_values':[[30,2,'x'],[18,9,'x']]
+           'isopleth_values':[[35,2,'x'],[18,9,'x']]
              }
 
 # this is non-obvious trick to find bottom edge coordinates of the grid in order
@@ -93,9 +93,10 @@ N_params_1={
         'function':lambda u:u/1000.0,
         'title':'Monthly withdrawal',
         'tag':'none',
+        'scale_type':'linear smart',
         'tick_side':'right',
         'tick_levels':3,
-        'tick_text_levels':2,
+        'tick_text_levels':3,
         'title_draw_center':True
                 }
 
@@ -110,7 +111,7 @@ block_2_params={
              }
 
 main_params={
-              'filename':'annuity.pdf',
+              'filename':'simple_annuity.pdf',
               'paper_height':20.0,
               'paper_width':20.0,
               'block_params':[block_1_params,block_2_params],

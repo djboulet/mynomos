@@ -41,8 +41,8 @@ u1_params = {
 
 u2_params = {
     'tag': 'ratio',
-    'u_min': 0.1,
-    'u_max': 0.9,
+    'u_min': 0.2,
+    'u_max': 0.65,
     'g': lambda u: u,
     'f': lambda u: 0,
     'h': lambda u: 1.0,
@@ -105,8 +105,8 @@ v2_params = {
 
 v3_params = {
     'tag': 'ratio',
-    'u_min': 0.1,
-    'u_max': 0.9,
+    'u_min': 0.2,
+    'u_max': 0.65,
     'function': lambda u: (u),
     'reference':True,
     'title':r'$ratio$',
@@ -120,6 +120,7 @@ block1_params = {
     'f1_params': u1_params,
     'f2_params': u2_params,
     'f3_params': u3_params,
+    
     'transform_ini': False,
     'isopleth_values':[[47,'x','y'],[47,'x','y']]
 }
