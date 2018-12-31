@@ -60,8 +60,8 @@ block_1_params = {
     'v_title': r'$R_b$ = ',
     'u_text_format': r"$%3.1f$ ",
     'v_text_format': r"$%3.1f$ ",
-    'wd_tick_levels': 4,
-    'wd_tick_text_levels': 2,
+    # 'wd_tick_levels': 4,
+    # 'wd_tick_text_levels': 2,
     'wd_tick_side': 'right',
     'wd_axis_color': color.cmyk.Gray,
     'isopleth_values': [
@@ -137,13 +137,14 @@ block_2_params = {
 
 main_params = {
     'filename': 'voltdiv2.pdf',
-    #   'paper_height':20.0,
-    #   'paper_width':20.0,
+      'paper_height':2.54*11.0,
+      'paper_width':2.54*8.5,
     'block_params': [block_1_params, block_2_params],
     'transformations': [('rotate', 0.01), ('scale paper',)],
-    'title_str': r'Voltage Divider         Vout=Vin*(Rb)/(Ra+Rb)            \copyright    Daniel Boulet  2018',
-    'title_x': 17,
-    'title_y': 21,
+    'title_str': r'Voltage Divider         $V_{out}=V_{in} \times R_b \div (R_a+R_b)$            \copyright    Daniel Boulet  2018',
+    'title_x': 18,
+    'title_y': 7.5,
+    # 'make_grid':True,
     'title_box_width': 5,
     'isopleth_params': [
         {
