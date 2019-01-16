@@ -72,7 +72,7 @@ eff_US = {
     'scale_type': 'linear smart',
     'tick_side': 'left',
     'title_draw_center': True,
-    'title_distance_center': -1.0,
+    'title_distance_center': -1.5,
 }
 
 fuel_SI = {
@@ -120,6 +120,8 @@ block_US = {
 
 main_params = {
     'filename': 'tutorial2.eps',
+    'paper_height':15.0,
+    'paper_width':15.0,
     'block_params': [block_SI, block_US],
     'transformations': [('rotate', 0.01), ('scale paper',)],
     'title_str': r'\LARGE Fuel economy calculator (Tutorial 2)',

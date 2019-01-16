@@ -64,7 +64,7 @@ block_1_params = {
     'f1_params': chord,
     'f2_params': radius,
     'f3_params': drop,
-     'isopleth_values':[[10.5,'x',1.25]]
+     'isopleth_values':[[10.5,'x',1.25]],
 }
 
 
@@ -74,6 +74,7 @@ main_params = {
     # 'paper_width': 10.0,
     'block_params': [block_1_params,],
     'transformations': [('rotate', 0.01), ('scale paper',)],
-    'title_str': r'$u_1=u_2\times u_3$'
+    'title_str': r'$u_1=u_2\times u_3$',
+
 }
 Nomographer(main_params)

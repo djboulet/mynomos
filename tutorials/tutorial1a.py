@@ -64,6 +64,8 @@ block_SI = {
 
 main_params = {
     'filename': 'tutorial1a.eps',
+    'paper_height':15.0,
+    'paper_width':15.0,
     'block_params': [block_SI],
     'transformations': [('rotate', 0.01), ('scale paper',)],
     'title_str': r'\LARGE Fuel economy calculator (Tutorial 1a)',
