@@ -32,6 +32,8 @@ import sys
 sys.path.insert(0, "..")
 from pynomo.nomographer import *
 
+text.set(mode="latex")  # allows use of latex commands in PyX
+
 resistors = [
     1.0,    1.2,    1.5,    1.8,    2.0,    2.2,    2.4,
     2.7,    3.0,    3.3,    3.6,    3.9,    4.3,    4.7,    5.1,    5.6,    6.2,
@@ -65,10 +67,10 @@ block_1_params = {
     'wd_tick_side': 'right',
     'wd_axis_color': color.cmyk.Gray,
     'isopleth_values': [
-        [5.6, 'x', 'x'],
-        [5.6, 'x', 'x'],
-        [5.6, 'x', 'x'],
-        [5.6, 'x', 'x'],
+        [4.7, 'x', 'x'],
+        [2.7, 'x', 'x'],
+        [1.2, 'x', 'x'],
+        [5.1, 'x', 'x'],
     ]
 }
 
@@ -141,17 +143,17 @@ main_params = {
       'paper_width':2.54*8.5,
     'block_params': [block_1_params, block_2_params],
     'transformations': [('rotate', 0.01), ('scale paper',)],
-    'title_str': r'Voltage Divider         $V_{out}=V_{in} \times R_b \div (R_a+R_b)$            \copyright    Daniel Boulet  2018',
+    'title_str': r'\Large Voltage Divider \par   $V_{out}=V_{in}  \frac{R_b}{R_a+R_b}$ \par \bigskip \copyright    Daniel Boulet  2018-2019',
     'title_x': 18,
     'title_y': 7.5,
     # 'make_grid':True,
-    'title_box_width': 5,
+    # 'title_box_width': 5,
     'isopleth_params': [
         {
-            'color': 'Gray',
-            'linewidth': 'thin',
+            'color': 'blue',
+            'linewidth': 'thick',
             'linestyle': 'dashed',
-            'circle_size': 0.05,
+            'circle_size': 0.10,
             'transparency': 0.0,
         },
     ],
