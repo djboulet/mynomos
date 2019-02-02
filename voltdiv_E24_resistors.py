@@ -35,9 +35,7 @@ from pynomo.nomographer import *
 text.set(mode="latex")  # allows use of latex commands in PyX
 
 resistors = [
-    1.0,    1.2,    1.5,    1.8,    2.0,    2.2,    2.4,
-    2.7,    3.0,    3.3,    3.6,    3.9,    4.3,    4.7,    5.1,    5.6,    6.2,
-    6.8,    7.5,    8.2,    9.1,    10.0,
+    0.91,   1.1,    1.3,    1.6,    2.0,    2.4,    3.0,    3.6,    4.3,    5.1,    6.2,    7.5,    9.1,
 ]
 
 # Type 5 contour
@@ -138,14 +136,14 @@ block_2_params = {
 }
 
 main_params = {
-    'filename': 'voltdiv2.pdf',
-      'paper_height':2.54*11.0,
-      'paper_width':2.54*8.5,
+    'filename': 'voltdiv_E24_resistors.pdf',
+      'paper_height':8.5*2.54,
+      'paper_width':11.0*2.54,
     'block_params': [block_1_params, block_2_params],
     'transformations': [('rotate', 0.01), ('scale paper',)],
-    'title_str': r'\Large Voltage Divider \par   $V_{out}=V_{in}  \frac{R_b}{R_a+R_b}$ \par \bigskip \copyright    Daniel Boulet  2018-2019',
-    'title_x': 18,
-    'title_y': 7.5,
+    'title_str': r'\Large Voltage Divider Nomograph \par   \normalsize (For E24 series values) \par \bigskip \large $V_{out}=V_{in} \cdot \frac{R_b}{R_a+R_b}$ \par \bigskip   \normalsize \copyright    Daniel Boulet  2018-2019',
+    'title_x': 2.0,
+    'title_y': 6.0,
     # 'make_grid':True,
     # 'title_box_width': 5,
     'isopleth_params': [
@@ -154,7 +152,7 @@ main_params = {
             'linewidth': 'thick',
             'linestyle': 'dashed',
             'circle_size': 0.10,
-            'transparency': 0.0,
+            # 'transparency': 0.0,
         },
     ],
 }
