@@ -1,18 +1,10 @@
 """
-    voltdiv2.py
-
-    ---
-
+    voltdiv_E24_resistors.py
 
     Nomogram to calculate resistor values for simple voltage divider.  This
-    nomogram uses grid rather than matrix.  This program is loosely based
-    on Leif Roschier's Amortized loan calculator as noted in the license
-    notification below.
+    nomogram uses grid rather than matrix.
 
-    Copyright (C) 2018 Daniel Boulet
-    ---
-
-    Copyright (C) 2007-2009  Leif Roschier
+    Copyright (C) 2018-2020 Daniel Boulet
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,14 +20,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+from pynomo.nomographer import *
 import sys
 sys.path.insert(0, "..")
-from pynomo.nomographer import *
 
-text.set(mode="latex")  # allows use of latex commands in PyX
+pyx.text.set(mode="latex")  # allows use of latex commands in PyX
 
 resistors = [
-    0.91,   1.1,    1.3,    1.6,    2.0,    2.4,    3.0,    3.6,    4.3,    5.1,    6.2,    7.5,    9.1,
+    1.0,	1.1,	1.2,    1.3,	1.5,	1.6,    1.8,	2.0,	2.2,    2.4,	2.7,	3.0,
+    3.3,	3.6,	3.9,    4.3,	4.7,	5.1,    5.6,	6.2,	6.8,    7.5,    8.2,    9.1
 ]
 
 # Type 5 contour
@@ -47,23 +40,24 @@ def f1(x, u):
 
 block_1_params = {
     'width': 12.0,
-    'height': 20.0,
+    'height': 25.0,
     'block_type': 'type_5',
-    'u_func': lambda u: (u),
-    'v_func': f1,
+
+    'u_func': lambda u: u,
     'u_values': resistors,
-    'v_values': resistors,
-    'v_axis_color': color.cmyk.Red,
-    'u_axis_color': color.cmyk.Red,
-    'wd_tag': 'A',
-    'u_title': '$R_a$',
-    'v_title': r'$R_b$ = ',
+    'u_axis_color': pyx.color.cmyk.Red,
+    'u_title': r'$R_a$',
     'u_text_format': r"$%3.1f$ ",
+
+    'v_func': f1,
+    'v_values': resistors,
+    'v_axis_color': pyx.color.cmyk.Red,
+    'v_title': r'$R_b$',
     'v_text_format': r"$%3.1f$ ",
-    # 'wd_tick_levels': 4,
-    # 'wd_tick_text_levels': 2,
+
+    'wd_tag': 'A',
     'wd_tick_side': 'right',
-    'wd_axis_color': color.cmyk.Gray,
+    'wd_axis_color': pyx.color.cmyk.Gray,
     'isopleth_values': [
         [4.7, 'x', 'x'],
         [2.7, 'x', 'x'],
@@ -132,16 +126,20 @@ block_2_params = {
         [3.3, 6.0, 'x'],
         [5.0, 9.0, 'x'],
         [5.0, 12.0, 'x'],
-        ]
+    ]
 }
 
 main_params = {
     'filename': 'voltdiv_E24_resistors.pdf',
-      'paper_height':8.5*2.54,
-      'paper_width':11.0*2.54,
+    'paper_height': 8.5*2.54,
+    'paper_width': 11.0*2.54,
+    # 'block_params': [block_1_params],
     'block_params': [block_1_params, block_2_params],
     'transformations': [('rotate', 0.01), ('scale paper',)],
-    'title_str': r'\Large Voltage Divider Nomograph \par   \normalsize (For E24 series values) \par \bigskip \large $V_{out}=V_{in} \cdot \frac{R_b}{R_a+R_b}$ \par \bigskip   \normalsize \copyright    Daniel Boulet  2018-2019',
+    'title_str': r'\Large Voltage Divider Nomograph \par \
+        \normalsize (For E24 series values) \par \bigskip \
+        \large $V_{out}=V_{in} \cdot \frac{R_b}{R_a+R_b}$ \
+        \par \bigskip   \normalsize \copyright    Daniel Boulet  2018-2020',
     'title_x': 2.0,
     'title_y': 6.0,
     # 'make_grid':True,

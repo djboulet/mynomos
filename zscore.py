@@ -19,12 +19,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+import scipy.stats as stats
+from pynomo.nomographer import *
 import sys
 sys.path.insert(0, "..")
-from pynomo.nomographer import *
-import scipy.stats as stats
 # allows use of latex commands in PyX such as \frac{a}{b} and \par
-text.set(mode="latex")
+pyx.text.set(mode="latex")
 
 
 def cdf(u):

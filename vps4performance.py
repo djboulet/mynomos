@@ -18,12 +18,12 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+from pynomo.nomographer import *
 import sys
 sys.path.insert(0, "..")
-from pynomo.nomographer import *
 
 # allows use of latex commands in PyX such as \frac{a}{b} and \par
-text.set(mode="latex")
+pyx.text.set(mode="latex")
 
 
 def watts2btu_hr(watts):
@@ -62,7 +62,7 @@ leftside_u1_left = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $MW$',
+    'title': r'\large $MW$',
     'title_x_shift': -1.0,
     'title_y_shift': 0.5,
     'tick_side': 'left',
@@ -83,9 +83,9 @@ leftside_u1_left = {
     # additional title information
     'extra_titles': [
         {
-            'dx': -1.5,
-            'dy': 2.0,
-            'text': '\Large Power \par Output',
+            'dx': -2.0,
+            'dy': 1.5,
+            'text': '\slshape \Large Power Output',
             # 'width': 5.0
         },
     ],
@@ -110,7 +110,7 @@ leftside_u1_right = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $\frac{MBTU}{hr}$',
+    'title': r'\large ${\frac{MBTU}{hr}}$',
     'title_x_shift': 1.0,
     'title_y_shift': 0.5,
     'tick_side': 'right',
@@ -131,7 +131,7 @@ leftside_u2_left = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $\%$',
+    'title': r'\large $\%$',
     'title_x_shift': -1.0,
     'title_y_shift': 0.5,
     'tick_side': 'left',
@@ -141,7 +141,7 @@ leftside_u2_left = {
         {
             'dx': -1.5,
             'dy': 2.0,
-            'text': '\Large Efficiency / \par Heat Rate',
+            'text': '\slshape \Large Efficiency / \par Heat Rate',
             # 'width': 5.0
         },
     ],
@@ -177,7 +177,7 @@ leftside_u2_right = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $\frac{BTU}{kw \cdot hr}$',
+    'title': r'\large ${\frac{BTU}{kw \cdot hr}}$',
     'title_x_shift': 1.0,
     'title_y_shift': 0.5,
     'tick_side': 'right',
@@ -207,9 +207,9 @@ leftside_u3_left = {
     # additional title information
     'extra_titles': [
         {
-            'dx': -1.5,
-            'dy': 2.0,
-            'text': '\Large Power \par Input',
+            'dx': -1.8,
+            'dy': 1.5,
+            'text': '\slshape \Large Power Input',
             # 'width': 5.0
         },
     ],
@@ -232,7 +232,7 @@ leftside_u3_right = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $\frac{MBTU}{hr}$',
+    'title': r'\large ${\frac{MBTU}{hr}}$',
     'title_x_shift': 1.0,
     'title_y_shift': 0.5,
     'tick_side': 'right',
@@ -254,29 +254,8 @@ rightside_u3_left = {
     # functions
     'function': lambda u: u*1000000.0,
 
-    # # scale type and detail
+    # scale type and detail
     'scale_type': 'manual point',
-
-    # 'tick_levels': 4,
-    # 'tick_text_levels': 3,
-    # 'scale_type': 'linear smart',
-
-    # # tick and title locations
-    # 'title': r'MW',
-    # 'title_x_shift': -1.0,
-    # 'title_y_shift':0.5,
-    # 'tick_side': 'left',
-
-    # additional title information
-    # 'extra_titles': [
-    #     {
-    #         'dx': -1.5,
-    #         'dy': 2.0,
-    #         'text': 'extra title',
-    #         # 'width': 5.0
-    #     },
-    # ],
-
 
 }
 
@@ -293,14 +272,6 @@ rightside_u3_right = {
     # scale type and detail
     'scale_type': 'manual point',
 
-    # 'tick_levels': 4,
-    # 'tick_text_levels': 3,
-    # 'scale_type': 'linear smart',
-
-    # # tick and title locations
-    # 'title': r'mill. BTU/hr',
-    # 'title_y_shift':0.5,
-    # 'title_x_shift': 1.0,
 }
 
 
@@ -318,7 +289,7 @@ rightside_u2_left = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $\frac{MJ}{kg}$',
+    'title': r'\large ${\frac{MJ}{kg}}$',
     'title_x_shift': -1.0,
     'title_y_shift': 0.5,
     'tick_side': 'left',
@@ -333,9 +304,9 @@ rightside_u2_left = {
     # additional title information
     'extra_titles': [
         {
-            'dx': -1.5,
-            'dy': 2.0,
-            'text': '\Large \\ \par Fuel LHV',
+            'dx': -3.0,
+            'dy': 1.5,
+            'text': r'\slshape \Large Fuel lower heat value',
             # 'width': 5.0
         },
     ],
@@ -359,7 +330,7 @@ rightside_u2_right = {
     'text_format': r"$%4.0f$",
 
     # tick and title locations
-    'title': r'\Large $\frac{BTU}{lb}$',
+    'title': r'\large ${\frac{BTU}{lb}}$',
     'title_x_shift': 1.0,
     'title_y_shift': 0.5,
     'tick_side': 'right',
@@ -396,7 +367,7 @@ rightside_u1_left = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $\frac{kg}{hr}$',
+    'title': r'\large ${\frac{kg}{hr}}$',
     'title_x_shift': -1.0,
     'title_y_shift': 0.5,
     'tick_side': 'left',
@@ -404,9 +375,9 @@ rightside_u1_left = {
     # additional title information
     'extra_titles': [
         {
-            'dx': -1.5,
-            'dy': 2.0,
-            'text': '\Large Fuel Cons. \par Rate',
+            'dx': -2.3,
+            'dy': 1.5,
+            'text': '\slshape \Large Fuel Burn Rate',
             # 'width': 5.0
         },
     ],
@@ -430,7 +401,7 @@ rightside_u1_right = {
     'scale_type': 'linear smart',
 
     # tick and title locations
-    'title': r'\Large $\frac{lbs}{hr}$',
+    'title': r'\large ${\frac{lbs}{hr}}$',
     'title_x_shift': 1.0,
     'title_y_shift': 0.5,
     'tick_side': 'right',
@@ -492,37 +463,26 @@ main_params = {
     'paper_width': 10.5*2.54,
     'block_params': [leftside_SI_block, rightside_SI_block, leftside_IMP_block, rightside_IMP_block],
     'transformations': [('rotate', 0.01), ('scale paper',)],
-    'title_str': r"\Huge G.T. Performance \par Nomograph",
+    'title_str': r"\Huge Gas Turbine \par Performance",
     'title_x': 5.5,
     'title_y': 21.0,
     'extra_texts': [
         {
-            'text': r'\Large \% eff = $\frac{341214.1633}{HR}$',
-                'x': 4.0,
+            'text': r'\large \textbf{Useful formulae:} \par \medskip \% eff = ${\frac{341214.1633}{HR}}$ \par \medskip  HR = ${\frac{3412.141533 \times P_{in}}{P_{out}}}$  \par \medskip Power = LHV $\times$ BR',
+                'x': 2.0,
                 'y': 2.0,
-            # 'width': 5.0
+                'width': 10.0
         },
         {
-            'text': r'\Large HR = $\frac{3412.141533 \times P_{in}}{P_{out}}$',
-            'x': 4.0,
-            'y': 1.0,
+            'text': r'\copyright Daniel Boulet (2019-2020)',
+            'x': 21.0,
+            'y': -1.5,
         },
         {
-            'text': r'\Large Power = LHV $\times$ Consumption',
             'x': 16.0,
-            'y': 2.0,
-            'width': 10.0
-        },
-        {
-            'text': r'\copyright Daniel Boulet  2019',
-            'x': 25.0,
-            'y': -2.0,
-        },
-        {
-            'x':16.0,
-            'y':20.0,
-            'text': r'\noindent Example: \par \medskip \noindent Working from left to right, 3.451\,MW output at at 28.4\% efficiency requires 12.151\,MW input to turbine. From right to left, fuel flow rate of 2020 lbs per hour of fuel with heat value of 47.5\,MJ per kg will produce 12.151\,MW input to turbine. \par \medskip \noindent (Note: different system of units may be combined in a single calculation.)',
-            'width':7.0,
+            'y': 20.0,
+            'text': r'\noindent \textbf{Example for Vericor VPS4 Genset} \par \medskip \noindent \normalsize Working from left to right, 3.451\,MW output at at 28.4\% efficiency requires 12.151\,MW input to turbine. From right to left, fuel flow rate of 2020 lbs per hour of fuel with heat value of 47.5\,MJ per kg will produce 12.151\,MW input to turbine. \par \medskip \noindent (Note: different system of units may be combined in a single calculation.)',
+            'width': 7.0,
         }
     ],
     # 'make_grid': True,
