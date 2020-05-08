@@ -63,7 +63,9 @@ block_1_params = {
         [2.7, 'x', 'x'],
         [1.2, 'x', 'x'],
         [5.1, 'x', 'x'],
-    ]
+    ],
+    'vertical_guide_nr': 10
+
 }
 
 # this is non-obvious trick to find bottom edge coordinates of the grid in order
