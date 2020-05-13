@@ -1,2 +1,4 @@
-# pynomo_examples
-Personal repository for nomograms built with Pynomo
+# MyNomos
+A personal repository for nomograms built with Pynomo.
+
+
