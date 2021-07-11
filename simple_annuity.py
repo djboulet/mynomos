@@ -27,7 +27,8 @@ import sys
 import numpy as np
 
 # allows use of latex commands in PyX such as \frac{a}{b} and \par
-pyx.text.set(mode="latex")
+from pyx import *
+pyx.text.set(text.LatexEngine)
 
 
 def annuity(x, u):

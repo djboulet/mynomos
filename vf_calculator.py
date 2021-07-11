@@ -21,10 +21,10 @@
 
 from pynomo.nomographer import Nomographer
 import sys
-import pyx
+from pyx import *
+pyx.text.set(text.LatexEngine)
 sys.path.insert(0, "..")
 
-pyx.text.set(mode="latex")  # allows use of latex commands in PyX
 pyx.text.preamble(r"\usepackage{array}")
 
 scalingFactor = 2

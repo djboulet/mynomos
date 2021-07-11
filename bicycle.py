@@ -3,7 +3,7 @@
 
     Bicycle gearing cadence and speed calculator
 
-    Copyright (C) 2019-2020 Daniel Boulet
+    Copyright (C) 2019-2021 Daniel Boulet
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,9 +19,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 from pynomo.nomographer import *
+from pyx import *
 import sys
 sys.path.insert(0, "..")
-pyx.text.set(mode="latex")
+pyx.text.set(text.LatexEngine)
 
 
 gearing = {
@@ -104,7 +105,7 @@ speed = {
     'u_min': 5.0,
     'u_max': 50.0,
     'function': lambda u: u,
-    'title': r'\large \slshape Speed',
+    'title': r'\large \slshape Speed (km/hour)',
     'tick_levels': 5,
     'tick_text_levels': 2,
     'scale_type': 'linear smart',
@@ -174,7 +175,7 @@ main_params = {
             'text': r'\large \slshape{Front derailer setting}',
         },
         {
-            'text': r'\copyright Daniel Boulet (2019-2020)',
+            'text': r'\copyright Daniel Boulet (2019-2021)',
             'x': -0.5,
             'y': 9.5,
         },

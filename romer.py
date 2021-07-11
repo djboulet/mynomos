@@ -27,9 +27,8 @@ from pynomo.nomographer import Nomographer
 import sys
 import os
 import numpy as np
-import pyx
-
-pyx.text.set(mode="latex")
+from pyx import *
+pyx.text.set(text.LatexEngine)
 
 
 def deg2rad(deg):
@@ -42,7 +41,7 @@ actual_grid_size = 1000.0
 
 # printed grid size in centimeters
 # printed_grid_size = float(os.environ['PRINTED_GRID_SIZE'])
-printed_grid_size = 7.5
+printed_grid_size = 21.5/2.5
 
 map_scale = actual_grid_size / (printed_grid_size / 100.0)
 romer_title = "Map Romer \par Scale: " + \
@@ -57,7 +56,7 @@ n_params = {
     'tick_text_levels': 0,
     'tick_side': 'left',
     'title': r'Northings',
-    'title_draw_center': True,
+    'title_draw_center': True,''
     'title_distance_center': -1.5,
     'extra_params': [{
         'u_min': actual_grid_size/10.0 * 1.5,

@@ -21,9 +21,8 @@ along with this program.  If not, see < http: // www.gnu.org/licenses/>.
 """
 from pynomo.nomographer import Nomographer
 import sys
-import pyx
-
-pyx.text.set(mode="latex")  # allows use of latex commands in PyX
+from pyx import *
+pyx.text.set(text.LatexEngine)
 
 searchers = {
     'ID': 'searchers',
@@ -244,7 +243,7 @@ main_params = {
     'title_y': 10.0,
     'title_x':10,
     # 'make_grid': True,
-    'debug': True,
+    # 'debug': True,
     'isopleth_params': [
         # {'color': 'black',
         #  'linewidth': 'thin',

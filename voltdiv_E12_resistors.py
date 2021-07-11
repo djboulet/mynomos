@@ -24,7 +24,8 @@ from pynomo.nomographer import *
 import sys
 sys.path.insert(0, "..")
 
-pyx.text.set(mode="latex")  # allows use of latex commands in PyX
+from pyx import *
+pyx.text.set(text.LatexEngine)
 
 resistors = [
     1.0,	1.2,	1.5,

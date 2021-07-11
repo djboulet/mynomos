@@ -24,7 +24,8 @@ from pynomo.nomographer import *
 import sys
 sys.path.insert(0, "..")
 # allows use of latex commands in PyX such as \frac{a}{b} and \par
-pyx.text.set(mode="latex")
+from pyx import *
+pyx.text.set(text.LatexEngine)
 
 
 def cdf(u):
