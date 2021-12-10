@@ -21,10 +21,11 @@
 from pynomo.nomographer import *
 import sys
 sys.path.insert(0, "..")
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
 
 # allows use of latex commands in PyX such as \frac{a}{b} and \par
-pyx.text.set(mode="latex")
-
+from pyx import *
+text.set(text.LatexEngine)
 
 def watts2btu_hr(watts):
     return watts*3.412141633
@@ -458,7 +459,7 @@ rightside_IMP_block = {
 }
 
 main_params = {
-    'filename': 'vps4performance.pdf',
+    'filename': outputfile,
     'paper_height': 8.0*2.54,
     'paper_width': 10.5*2.54,
     'block_params': [leftside_SI_block, rightside_SI_block, leftside_IMP_block, rightside_IMP_block],

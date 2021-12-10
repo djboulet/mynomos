@@ -25,6 +25,7 @@ from pynomo.nomographer import *
 
 import sys
 import numpy as np
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
 
 # allows use of latex commands in PyX such as \frac{a}{b} and \par
 from pyx import *
@@ -126,7 +127,7 @@ block_2_params = {
 }
 
 main_params = {
-    'filename': 'simple_annuity.pdf',
+    'filename': outputfile,
     'paper_height': 2.54*11,
     'paper_width': 2.54*8.5,
     # 'make_grid': True,

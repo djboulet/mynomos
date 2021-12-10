@@ -24,13 +24,14 @@ import sys
 from pyx import *
 
 sys.path.insert(0, "..")
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
 
 # allows use of latex commands in PyX such as \frac{a}{b} and \par
 pyx.text.set(text.LatexEngine)
 
 N_params_1 = {
-    "u_min": 0.8,
-    "u_max": 1.3,
+    "u_min": 1.1,
+    "u_max": 1.6,
     "function": lambda u: u,
     "title": r"$\frac{CAD}{L}$",
     "tick_levels": 4,
@@ -54,10 +55,10 @@ N_params_2 = {
 }
 
 N_params_3 = {
-    "u_min": 2.0,
-    "u_max": 3.5,
+    "u_min": 3.0,
+    "u_max": 5.0,
     "function": lambda u: u / 3.78541,
-    "title": r"$\frac{USD}{USG}$",
+    "title": r"$\frac{USD}{US Gal}$",
     "tick_levels": 4,
     "tick_text_levels": 2,
     "scale_type": "linear smart",
@@ -71,26 +72,26 @@ block_1_params = {
     "f1_params": N_params_1,
     "f2_params": N_params_2,
     "f3_params": N_params_3,
-    "isopleth_values": [[1.2, 1.4, "x"]],
+    "isopleth_values": [[1.3, 1.4, "x"]],
 }
 
 main_params = {
-    "filename": "gasolinepricesUSD_CAD.pdf",
+    "filename": outputfile,
     "paper_height": 11.0 * 2.54 / 2.0,
     "paper_width": 8.5 * 2.54 / 2.0,
     "block_params": [block_1_params],
     "transformations": [("rotate", 0.01), ("scale paper",)],
     "title_str": r"\huge \textbf{Gas Price Converter}",
-    "title_y": 15.0,
+    "title_y": 13.50,
     "title_box_width": 15.0,
     "extra_texts": [
         {
             "x": 1.0,
-            "y": 13.0,
+            "y": 12.5,
             "text": r"\noindent Is gasoline cheaper \
                 south of the 49\textsuperscript{th}? Use this gas price \
                 converter to be sure. In the example \
-                shown, \$1.200 per Litre is the same price as \$3.24 per USG if the exchnage rate is \$1.40 CAD per USD.",
+                shown, \$1.300 $\frac{CAD}{L}$ is the same price as \$3.52 $\frac{USD}{US Gal}$ if the exchange rate is 1.40  $\frac{CAD}{USD}$.",
             "width": 8.0,
         },
         {

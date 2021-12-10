@@ -1,5 +1,5 @@
 """
-    bicycle.py
+    bicycle_cadence.py
 
     Bicycle gearing cadence and speed calculator
 
@@ -21,6 +21,8 @@
 from pynomo.nomographer import *
 from pyx import *
 import sys
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
+
 sys.path.insert(0, "..")
 pyx.text.set(text.LatexEngine)
 
@@ -32,24 +34,21 @@ gearing = {
     'u_func': lambda u: u,
     'v_func': lambda x, v: v/x,
 
+	# teeth on rear cage
     'u_values': [12.0, 14.0, 16.0, 18.0, 21.0, 24.0, 28.0],
     'u_scale_type': 'manual point',
     'u_manual_axis_data': {12.0: '7', 14.0: '6', 16.0: '5', 18.0: '4', 21.0: '3', 24.0: '2', 28.0: '1'},
     'u_title': 'Rear cage',
 
+	# teeth on front derailer
     'v_values': [28.0, 38.0, 48.0],
     'v_scale_type': 'manual point',
     'v_manual_axis_data': {28.0: 'Small', 38.0: 'Medium', 48.0: 'Large'},
-    # 'v_title': 'Front sprocket',
 
     'wd_tick_levels': 2,
     'wd_tick_text_levels': 1,
     'wd_tick_side': 'right',
-    # 'wd_title': r'\Large Resulting gear ratio',
-    # 'wd_title_y_shift': -20.0,
     'wd_title_opposite_tick': True,
-    # 'wd_title_distance_center': 2.5,
-
     'isopleth_values': [[14.0, 38.0, 'x']],
 
 }
@@ -57,25 +56,23 @@ gearing = {
 
 wheelrpm = {
     'tag': 'wheelrpm',
-    'u_min': 30.0,
+    'u_min': 90.0,
     'u_max': 360.0,
     'scale_type': 'manual point',
     'function': lambda u: u,
-    # 'title': r'wheel rpm',
-    # 'tick_levels': 3,
-    # 'tick_text_levels': 1,
 }
 
 crankrpm = {
-    'u_min': 30.0,
-    'u_max': 90.0,
+    'u_min': 60.0,
+    'u_max': 120.0,
     'function': lambda u: u,
-    'title': r'\large \slshape Crank RPM',
+    'title': r'\large \slshape Cadence (RPM)',
     'tick_levels': 3,
     'tick_text_levels': 2,
     'scale_type': 'linear smart',
+	'tick_side':'left',
     'title_draw_center': True,
-    'title_distance_center': -0.5,
+    # 'title_distance_center': -0.5,
 }
 
 ratio = {
@@ -84,7 +81,6 @@ ratio = {
     'u_min': 1.0,
     'u_max': 4.0,
     'function': lambda u: u,
-    # 'title': r'ratio',
     'tick_levels': 3,
     'tick_text_levels': 1,
 }
@@ -92,8 +88,6 @@ ratio = {
 
 rotation = {
     'block_type': 'type_2',
-    #  'width':10.0,
-    #  'height':10.0,
     'f1_params': wheelrpm,
     'f2_params': crankrpm,
     'f3_params': ratio,
@@ -102,8 +96,8 @@ rotation = {
 
 
 speed = {
-    'u_min': 5.0,
-    'u_max': 50.0,
+    'u_min': 15.0,
+    'u_max': 45.0,
     'function': lambda u: u,
     'title': r'\large \slshape Speed (km/hour)',
     'tick_levels': 5,
@@ -117,7 +111,7 @@ diameter = {
     'u_min': 600.0,
     'u_max': 800.0,
     'function': lambda u: u*3.1415927*60.0/1000000.0,
-    'title': r'Wheel Diameter',
+    'title': r'Wheel Diameter (mm)',
     'tick_levels': 2,
     'tick_text_levels': 1,
     'scale_type': 'linear smart',
@@ -128,7 +122,7 @@ diameter = {
 
 wheelrpm2 = {
     'tag': 'wheelrpm',
-    'u_min': 30.0,
+    'u_min': 90.0,
     'u_max': 360.0,
     'function': lambda u: u,
     'scale_type': 'linear smart',
@@ -142,8 +136,6 @@ wheelrpm2 = {
 
 speedblock = {
     'block_type': 'type_2',
-    # 'width': 10.0,
-    # 'height': 10.0,
     'f1_params': speed,
     'f2_params': diameter,
     'f3_params': wheelrpm2,
@@ -153,15 +145,12 @@ speedblock = {
 
 
 main_params = {
-    'filename': 'bicycle.pdf',
-    #   'paper_height':10.0,
-    #   'paper_width':10.0,
+    'filename': outputfile,
     'block_params': [gearing, rotation, speedblock],
     'transformations': [('rotate', 0.01), ('scale paper',)],
     'title_str': r'\Large \textbf{Bicycle Cadence Calculator}',
-    # 'make_grid': True,
     'title_x': 3.5,
-    'title_y': 10.0,
+    'title_y': 3.5,
 
     'extra_texts': [
         {
@@ -177,11 +166,12 @@ main_params = {
         {
             'text': r'\copyright Daniel Boulet (2019-2021)',
             'x': -0.5,
-            'y': 9.5,
+            'y': 3.0,
         },
 
 
-    ]
+    ],
+	# 'make_grid':True,
 
 }
 

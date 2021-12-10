@@ -1,5 +1,5 @@
 """
-search_effort.py
+search_planner.py
 
 Nomogram to calculate search effort for ground search activities.
 
@@ -21,8 +21,10 @@ along with this program.  If not, see < http: // www.gnu.org/licenses/>.
 """
 from pynomo.nomographer import Nomographer
 import sys
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
+
 from pyx import *
-pyx.text.set(text.LatexEngine)
+text.set(text.LatexEngine)
 
 searchers = {
     'ID': 'searchers',
@@ -132,7 +134,7 @@ area_block = {
     'f2_params': distance1,
     'f3_params': spacing,
     'f4_params': searchers,
-    'reference_color': pyx.color.cmyk.Gray,
+    'reference_color': color.cmyk.Gray,
     'padding': .9,
     'isopleth_values': [['x', 3.0, 7.5, 6]],
 }
@@ -234,7 +236,7 @@ distance_speed_time_block2 = {
 }
 
 main_params = {
-    'filename': 'search_planner.pdf',
+    'filename': outputfile,
     'paper_height': 8,
     'paper_width': 16,
     'block_params': [area_block, distance_speed_time_block, distance_speed_time_block2],

@@ -22,10 +22,11 @@
 from pynomo.nomographer import Nomographer
 import sys
 from pyx import *
-pyx.text.set(text.LatexEngine)
+text.set(text.LatexEngine)
 sys.path.insert(0, "..")
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
 
-pyx.text.preamble(r"\usepackage{array}")
+text.preamble(r"\usepackage{array}")
 
 scalingFactor = 2
 shortest_wavelength = 0.19250
@@ -122,11 +123,11 @@ block_1_params = {
     'f3_params': stub_length_2,
     'f4_params': vel_factor_2,
     'isopleth_values': [[0.5, 66, 'x', 85]],
-    'reference_color': pyx.color.cmyk.Gray
+    'reference_color': color.cmyk.Gray
 }
 
 main_params = {
-    'filename': 'vf_calculator.pdf',
+    'filename': outputfile,
     'paper_height': 20.0,
     'paper_width': 20.0,
     'block_params': [block_1_params],

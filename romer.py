@@ -25,11 +25,11 @@
 
 from pynomo.nomographer import Nomographer
 import sys
-import os
 import numpy as np
 from pyx import *
-pyx.text.set(text.LatexEngine)
+text.set(text.LatexEngine)
 
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
 
 def deg2rad(deg):
     return np.pi * deg / 180.0
@@ -65,8 +65,8 @@ n_params = {
     }],
     'text_distance_0': 0.65,
     'text_distance_1': 0.4,
-    'text_size_0': pyx.text.size.scriptsize,
-    'text_size_1': pyx.text.size.tiny,
+    'text_size_0': text.size.scriptsize,
+    'text_size_1': text.size.tiny,
     'grid_length_0': 0.5,
 
 }
@@ -89,8 +89,8 @@ e_params = {
     'text_distance_0': 0.65,
     'text_distance_1': 0.4,
     'grid_length_0': 0.5,
-    'text_size_0': pyx.text.size.scriptsize,
-    'text_size_1': pyx.text.size.tiny,
+    'text_size_0': text.size.scriptsize,
+    'text_size_1': text.size.tiny,
 }
 
 block_params_n = {
@@ -110,7 +110,7 @@ block_params_e = {
 }
 
 main_params = {
-    'filename': 'romer.pdf',
+    'filename': outputfile,
     # 'paper_height': printed_grid_size / np.sqrt(2.0),
     # 'paper_width': printed_grid_size * 2.0 / np.sqrt(2.0),
     'paper_height': printed_grid_size,
@@ -128,7 +128,7 @@ main_params = {
                 [0, 1.5, 0, printed_grid_size + 0.5], [-0.5, printed_grid_size,
                                                        printed_grid_size - 1.5, printed_grid_size],
             ],
-            'line_style': [pyx.color.cmyk.Black, pyx.style.linewidth.thin, pyx.style.linestyle.dashed],
+            'line_style': [color.cmyk.Black, style.linewidth.thin, style.linestyle.dashed],
         },
     ],
     'extra_texts': [

@@ -23,6 +23,7 @@
 from pynomo.nomographer import *
 import sys
 sys.path.insert(0, "..")
+outputfile = sys.argv[0].split('.')[0]+'.pdf'
 
 from pyx import *
 pyx.text.set(text.LatexEngine)
@@ -135,7 +136,7 @@ block_2_params = {
 }
 
 main_params = {
-    'filename': 'voltdiv_E12_resistors.pdf',
+    'filename': outputfile,
     'paper_height': 8.5*2.54,
     'paper_width': 11.0*2.54,
     # 'block_params': [block_1_params],
