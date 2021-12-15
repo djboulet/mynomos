@@ -62,15 +62,16 @@ def cableloss(freq):
 axis1_forward_power_meas_watts = {
     "tag": "axis14",
     "u_min": 10.0,
-    "u_max": 100.0,
-    "title_distance_center": -1.5,
-    "title": r"Fwd (Watts)",
-    "title_draw_center": True,
+    "u_max": 150.0,
+    # "title_distance_center": -1.5,
+    "title": r"$P_{fwd}$",
+    # "title_draw_center": True,
     "tick_levels": 5,
     "tick_text_levels": 4,
     "function": lambda u: watts2dbw(u),
     "align_func": lambda u: watts2dbw(u),
     "scale_type": "linear smart",
+	'tick_side':'left',
 }
 
 block_forward_watts = {
@@ -81,11 +82,11 @@ block_forward_watts = {
 
 axis2_reflected_power_meas_watts = {
     "tag": "axis25",
-    "title": r"Ref (Watts)",
+    "title": r"$P_{ref}$",
     "u_min": 0.1,
-    "title_draw_center": True,
-    "u_max": 7.0,
-    "title_distance_center": 1.5,
+    # "title_draw_center": True,
+    "u_max": 10.0,
+    # "title_distance_center": 1.5,
     "function": lambda u: watts2dbw(u),
     "align_func": lambda u: watts2dbw(u),
     "tick_levels": 5,
@@ -102,11 +103,11 @@ block_reflected_watts = {
 
 axis3_return_loss_meas_vswr = {
     "tag": "axis36",
-    "u_min": rl2vswr(30),
-    "u_max": rl2vswr(7),
-    "title_draw_center": True,
-    "title": r"VSWR (Meas)",
-    "title_distance_center": 1.9,
+    "u_min": 1.1,
+    "u_max": 5.0,
+    # "title_draw_center": True,
+    "title": r"VSWR (Measured)",
+    # "title_distance_center": 1.9,
     "function": lambda u: vswr2rl(u),
     "align_func": lambda u: vswr2rl(u),
     "tick_levels": 5,
@@ -126,13 +127,13 @@ axis4_forward_power_meas_dbw = {
     "u_min": watts2dbw(10.0),
     "u_max": watts2dbw(100.0),
     "function": lambda u: -u,
-    "title": r"Fwd (dbW)",
+    # "title": r"Fwd (dbW)",
     "title_draw_center": True,
     "tick_side": "left",
     "tick_levels": 5,
     "title_distance_center": 1.7,
     "tick_text_levels": 4,
-    "scale_type": "linear smart",
+    "scale_type": "manual",
 }
 
 axis5_reflected_power_meas_dbw = {
@@ -140,12 +141,12 @@ axis5_reflected_power_meas_dbw = {
     "u_min": watts2dbw(0.1),
     "u_max": watts2dbw(7.0),
     "function": lambda u: u,
-    "title": r"Ref (dbW)",
+    # "title": r"Ref (dbW)",
     "title_distance_center": -1.7,
     "title_draw_center": True,
     "tick_levels": 5,
     "tick_text_levels": 4,
-    "scale_type": "linear smart",
+    "scale_type": "manual",
 }
 
 axis6_return_loss_meas_dbw1 = {
@@ -154,11 +155,11 @@ axis6_return_loss_meas_dbw1 = {
     "u_max": 30.0,
     "function": lambda u: u,
     "title_distance_center": 1.5,
-    "title": r"R.L. Meas (db)",
+    # "title": r"R.L. Meas (db)",
     "title_draw_center": True,
     "tick_levels": 5,
     "tick_text_levels": 4,
-    "scale_type": "linear smart",
+    "scale_type": "manual",
 }
 
 
@@ -179,20 +180,20 @@ axis8_return_loss_true_dbw = {
     "u_max": 30.0,
     "function": lambda u: -u,
     "title_draw_center": True,
-    "title": r"R.L. True (db)",
+    # "title": r"R.L. True (db)",
     "tick_levels": 5,
     "title_distance_center": 1.5,
     "tick_text_levels": 4,
-    "scale_type": "linear smart",
+    "scale_type": "manual",
 }
 
 axis10_return_loss_true_vswr = {
     "tag": "axis8-10",
-    "u_min": rl2vswr(30),
-    "u_max": rl2vswr(1),
-    "title_draw_center": True,
+    "u_min": 1.1,
+    "u_max": 10.0,
+    # "title_draw_center": True,
     "title": r"VSWR (True)",
-    "title_distance_center": 1.5,
+    # "title_distance_center": 1.5,
     "function": lambda u: vswr2rl(u),
     "align_func": lambda u: vswr2rl(u),
     "tick_side": "left",
