@@ -55,7 +55,7 @@ def dbw2watts(dbw):
 
 def cableloss(freq):
     # cable loss in db per meter at freq
-	# source formula is db per 100 feet
+    # source formula is db per 100 feet
     return (np.sqrt(freq) * 0.356859 + freq * 0.000470) / 100.0 / 0.3048
 
 
@@ -70,7 +70,7 @@ axis1_forward_power_meas_watts = {
     "function": lambda u: watts2dbw(u),
     "align_func": lambda u: watts2dbw(u),
     "scale_type": "linear smart",
-	'tick_side':'left',
+    "tick_side": "left",
 }
 
 block_forward_watts = {
@@ -221,17 +221,14 @@ block_true_rl_dbw = {
 # cable loss block using type 5
 block_cable_loss = {
     "block_type": "type_5",
-
     "u_func": lambda u: u,
     "u_values": list(np.linspace(10.0, 40.0, 16)),
     "u_scale_type": "manual point",
-	'u_title_distance_center':1.0,
+    "u_title_distance_center": 1.0,
     "u_title": "Cable length (m)",
-
     "v_func": lambda x, v: x / cableloss(v),
     "v_values": [1.75, 3.5, 7.0, 14.0, 28.0, 50.0, 144.0, 440.0],
     "v_title": "Freq (MHz)",
-
     "wd_tick_levels": 4,
     "wd_tick_text_levels": 1,
     "wd_tick_side": "left",
@@ -255,14 +252,14 @@ main_params = {
         block_cable_loss,
     ],
     "transformations": [("rotate", 0.01), ("scale paper",)],
-    "title_str": r"\huge \textbf{True VSWR as a result of cable attenuation} \
+    "title_str": r"\huge \textbf{True VSWR as a result of cable attenuation for LMR195\textsuperscript{\textregistered}} \
 		\par\medskip \normalsize \copyright Daniel Boulet (2021)",
     "title_x": 7.0,
     "title_y": 19.0,
-    "title_box_width": 10.0,
+    "title_box_width": 12.0,
     "extra_texts": [
         {
-            "x": 2.0,
+            "x": 1.0,
             "y": 16.5,
             "text": r"\noindent Calculate true VSWR by drawing \
 				a straight line from forward power axis through the reflected \
@@ -270,7 +267,7 @@ main_params = {
 				To compensate for cable loss draw straight line from \
 				measured VSWR to cable loss value.  True VSWR can be read at \
 				the intersection of true VWSR axis.",
-            "width": 10.0,
+            "width": 12.0,
         },
         {
             "x": 0.0,
