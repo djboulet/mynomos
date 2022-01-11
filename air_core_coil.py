@@ -28,21 +28,14 @@ text.set(text.LatexEngine)
 
 from pynomo.nomographer import Nomographer
 
-
-def radius2diameter(r):
-    return r * 2.0
-
-
-def diameter2radius(d):
-    return d / 2.0
-
-
 length_over_diameter = {
     "u_min": 0.1,
     "u_max": 10.0,
     "function": lambda u: np.log(18.0 + 40.0 * u),
-    "title": r"$\frac{L}{D}$",
+    "title": r"$\frac{Length}{Diameter}$",
     "tick_levels": 5,
+    "title_x_shift": 0.5,
+    "title_y_shift": 0.35,
     "tick_text_levels": 4,
     "scale_type": "log smart",
 }
@@ -51,9 +44,11 @@ number_of_turns = {
     "u_min": 2.0,
     "u_max": 100.0,
     "function": lambda u: -2.0 * np.log(u),
-    "title": r"$N$",
+    "title": r"$Turns$",
     "tick_levels": 5,
     "tick_text_levels": 4,
+    "title_x_shift": 0.5,
+    "title_y_shift": 0.35,
     "scale_type": "log smart",
 }
 
@@ -64,6 +59,9 @@ inductance = {
     "title": r"$\mu H$",
     "tick_levels": 5,
     "tick_text_levels": 4,
+    "title_x_shift": -0.5,
+    "tick_side": "left",
+    "title_y_shift": 0.35,
     "scale_type": "log smart",
 }
 
@@ -72,17 +70,20 @@ diameter = {
     "u_min": 0.5,
     "u_max": 2.5,
     "function": lambda u: -np.log(u),
-    "title": r"$D$",
+    "title": r"$Diameter$",
     "tick_levels": 5,
     "tick_text_levels": 4,
+    "title_x_shift": -0.5,
+    "tick_side": "left",
+    "title_y_shift": 0.35,
     "scale_type": "log smart",
 }
 
 
 block_1_params = {
     "block_type": "type_3",
-    "width": 20.0,
-    "height": 20.0,
+    "width": 40.0,
+    "height": 40.0,
     "f_params": [
         length_over_diameter,
         number_of_turns,
@@ -91,37 +92,37 @@ block_1_params = {
     ],
     "reference_padding": 0.1,
     "reference_titles": ["\Huge$\chi$"],
-    "isopleth_values": [['x',40,30.0,2.0]],
+    "isopleth_values": [["x", 40, 30.0, 2.0]],
 }
 
 main_params = {
     "filename": "air_core_coil.pdf",
-    "paper_width": 8.5 * 2.54,
-    "paper_height": 11.0 * 2.54,
+    "paper_height": 8.5 * 2.54,
+    "paper_width": 11.0 * 2.54,
     "block_params": [block_1_params],
     "transformations": [("rotate", 0.01), ("scale paper",)],
-    "title_str": r"\Huge Single-layer air coil calculator",
+    # "title_str": r"\Huge Single-layer air coil calculator",
     # "make_grid": True,
-    "title_y": 27.0,
-    "title_x": 2.0,
+    "title_y": 23.0,
+    "title_x": 5.0,
     "extra_texts": [
         {
-            "x": -2.0,
-            "y": 4.0,
-            "text": r"\noindent Example: \par \noindent A 30 $\mu$H coil wound on a 2 inch form requires 40 turns of wire over a length of 4.4 inches (2.2 $\times$ 2).",
-            "width": 7.0,
+            "x": 0.0,
+            "y": 22.0,
+            "text": r"\noindent \huge Single-layer air coil calculator \par \normalsize \medskip \noindent Nomograph to calculate inductance of single layer air coil.  Nomograph design adapted from Electronics World magazine, August 1962 (page 55). \par \medskip   \noindent \copyright    Daniel Boulet  2022",
+            "width": 10.0,
         },
         {
-            "x": 12.0,
-            "y": 28.0,
+            "x": 17.0,
+            "y": 22.0,
             "text": r"\noindent This nomograph implements the following formula: \par \medskip \noindent $\mu H = \frac{r^2 \times N^2}{9r + 10l}$ \medskip \par \noindent where $r$ is the radius of the coil (in inches), $N$ is the number of turns, $l$ is the length of the coil (in inches).",
             "width": 12.0,
         },
         {
-            "x": 12.0,
-            "y": 3.0,
-            "text": r"\noindent Nomograph to calculate inductance of single layer air coil.  Design adapted from Electronics World magazine, August 1962 (page 55). \par \medskip   \noindent \copyright    Daniel Boulet  2022",
-            "width": 12.0,
+            "x": 22.0,
+            "y": 19.0,
+            "text": r"\noindent Example shown: \par \noindent To create a 30 $\mu$H coil wound on a 2 inch form requires 40 turns of wire over a length of 4.4 inches (2.2 $\times$ 2 inches).",
+            "width": 7.0,
         },
     ],
 }
