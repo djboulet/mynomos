@@ -30,7 +30,7 @@ from pynomo.nomographer import Nomographer
 
 length_over_diameter = {
     "u_min": 0.1,
-    "u_max": 10.0,
+    "u_max": 50.0,
     "function": lambda u: np.log(18.0 + 40.0 * u),
     "title": r"$\frac{Length}{Diameter}$",
     "tick_levels": 5,
@@ -42,7 +42,7 @@ length_over_diameter = {
 
 number_of_turns = {
     "u_min": 2.0,
-    "u_max": 100.0,
+    "u_max": 500.0,
     "function": lambda u: -2.0 * np.log(u),
     "title": r"$Turns$",
     "tick_levels": 5,
@@ -54,7 +54,7 @@ number_of_turns = {
 
 inductance = {
     "u_min": 0.1,
-    "u_max": 100.0,
+    "u_max": 200.0,
     "function": lambda u: np.log(u),
     "title": r"$\mu H$",
     "tick_levels": 5,
@@ -90,7 +90,7 @@ block_1_params = {
         inductance,
         diameter,
     ],
-    "reference_padding": 0.1,
+    "reference_padding": 0.25,
     "reference_titles": ["\Huge$\chi$"],
     "isopleth_values": [["x", 40, 30.0, 2.0]],
 }
