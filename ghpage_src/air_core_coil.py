@@ -53,8 +53,8 @@ number_of_turns = {
 }
 
 inductance = {
-    "u_min": 0.1,
-    "u_max": 200.0,
+    "u_min": 10.0,
+    "u_max": 1000.0,
     "function": lambda u: np.log(u),
     "title": r"$\mu H$",
     "tick_levels": 5,

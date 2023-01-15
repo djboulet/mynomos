@@ -37,11 +37,11 @@ def deg2rad(deg):
 
 # actual grid size in meters
 # actual_grid_size = float(os.environ['ACTUAL_GRID_SIZE'])
-actual_grid_size = 1000.0
+actual_grid_size = 10000.0
 
 # printed grid size in centimeters
 # printed_grid_size = float(os.environ['PRINTED_GRID_SIZE'])
-printed_grid_size = 21.5/2.5
+printed_grid_size = 13.65
 
 map_scale = actual_grid_size / (printed_grid_size / 100.0)
 romer_title = "Map Romer \par Scale: " + \
