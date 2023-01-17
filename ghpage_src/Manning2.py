@@ -3,7 +3,7 @@
 
     Manning formula for open channel flow
 
-	Copyright (C) 2023 Daniel Boulet
+	Copyright (C) 2023 Daniel Boulet, Pedro Martínez Pagán
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -145,14 +145,14 @@ main_params = {
         {
             "x": 22.0,
             "y": 12.0,
-            "text": r"\Large $Q = A \cdot V =  \frac{1}{n} \cdot Rh^\frac{2}{3} \cdot \sqrt{S} $ \normalsize \medskip \
+            "text": r"\Large $Q = A \cdot V = A \cdot \frac{1}{n} \cdot Rh^\frac{2}{3} \cdot \sqrt{S} $ \normalsize \medskip \
 			\par Q = Hydraulic flux  \
 			\par A = Flow cross-sectional area \
 			\par V = Flow velocity \
 			\par n = Manning roughness coefficient \
 			\par Rh = Hydraulic radius \
 			\par S = Channel slope \
-			\par \medskip \normalsize \copyright Daniel Boulet (2023)",
+			\par \medskip \normalsize \copyright Daniel Boulet, Pedro Mart\'inez Pag\'an (2023)",
             "width": 12.0,
         },
     ],
